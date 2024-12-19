@@ -52,6 +52,11 @@ public class StudentDao
 		return repository.findByEmailAndPassword(email,password);
 	}
 
+	public Optional<Student> findStudentByName(String name) {
+		
+		return repository.findStudentByName(name);
+	}
+
 	
 
 }
