@@ -75,6 +75,12 @@ public class StudentController
 		
 	}
 	
+	@GetMapping("/name/{name}")
+	public ResponseStructure<Student> findStudentByName(@PathVariable String name)
+	{
+		return service.findStudentByName(name);
+	}
+	
 	
 	
 	

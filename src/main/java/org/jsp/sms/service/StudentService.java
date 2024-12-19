@@ -140,6 +140,23 @@ public class StudentService
 		return new ResponseEntity(structure,HttpStatus.OK);
 	}
 
+	public ResponseStructure<Student> findStudentByName(String name) {
+		Optional<Student> optional=dao.findStudentByName(name);
+		ResponseStructure<Student> structure=new ResponseStructure<Student>();
+		if(optional.isEmpty())
+		{
+			structure.setHttpStatus(HttpStatus.NOT_FOUND.value());
+			structure.setMessage("No Student Found In Database");
+			structure.setBody(null);
+			return structure;
+		}
+		structure.setHttpStatus(HttpStatus.OK.value());
+		structure.setMessage("Student Found In Database");
+		structure.setBody(optional.get());
+		return structure;
+	
+	}
+
 	
 
 	
